@@ -1,0 +1,370 @@
+@import "variables", "reset", "mixins";
+/////////////
+body {
+  width: 100%;
+  height: auto;
+  background-color: $neutralColor4;
+}
+////////////
+.main-header {
+  width: 100%;
+  display: flex;
+  height: 9rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $neutralColor4;
+  padding: 1.5rem;
+  @media (min-width: 968px) {
+    padding: 1.5rem 4rem;
+  }
+  .logo {
+    width: 12rem;
+    height: 2rem;
+    @media (min-width: 968px) {
+      margin-left: 5rem;
+    }
+  }
+  .navigation {
+    .nav-list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 90%;
+      max-width: 40rem;
+      background-color: $neutralColor4;
+      text-align: center;
+      z-index: 1;
+      margin: 10rem auto;
+      border-radius: 0.5rem;
+      height: 40rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      display: none;
+      @media (min-width: 968px) {
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 50rem;
+      }
+      .nav-element {
+        list-style: none;
+        .nav-link {
+          text-decoration: none;
+          font-size: 2rem;
+          color: $neutralColor1;
+          font-weight: bold;
+          &:hover {
+            padding-bottom: 2rem;
+            cursor: pointer;
+            color: $primaryColor1;
+            border-bottom: 0.3rem solid $primaryColor2;
+          }
+          @media (max-width: 968px) {
+            padding: 5rem;
+            color: $primaryColor1;
+          }
+        }
+      }
+    }
+    // .nav-list.open {
+    //   @media (max-width: 968px) {
+    //     display: block;
+    //   }
+    // }
+    .open-menu {
+      display: block;
+      height: 1.5rem;
+      @media (min-width: 968px) {
+        display: none;
+      }
+    }
+    .close-menu {
+      display: none;
+      @media (min-width: 968px) {
+      }
+    }
+  }
+  .request-invite {
+    display: none;
+    @include requestInviteBtn;
+    margin: 2rem;
+    @media (min-width: 968px) {
+      display: block;
+    }
+  }
+}
+/////////////
+.hero {
+  width: 100%;
+  // margin-bottom: 25vh;
+  background-image: url("../images/bg-intro-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $neutralColor3;
+  z-index: -1;
+  @media (min-width: 968px) {
+    background-image: url("../images/bg-intro-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: 60% 170%;
+    // background-size: cover;
+    background-position: 132% 60%;
+    // background-position: bottom -600px right -800px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 1;
+  }
+  .hero-image {
+    position: relative;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 50rem;
+    height: auto;
+    @media (min-width: 968px) {
+      max-width: 60rem;
+      top: 5rem;
+      margin: 0;
+    }
+  }
+  .hero-article {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    @media (min-width: 968px) {
+      text-align: left;
+      width: 50%;
+      max-width: 50rem;
+      margin: 0 10rem;
+      z-index: 1;
+    }
+    .hero-heading {
+      margin-top: 5rem;
+      padding: 1rem;
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      color: $primaryColor1;
+    }
+    .hero-paragraph {
+      padding: 1rem;
+      color: $neutralColor1;
+      font-size: clamp(1.6rem, 6vw, 2rem);
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+    .request-invite {
+      @include requestInviteBtn;
+    }
+  }
+}
+////////////
+.choose-easybank {
+  width: 100%;
+  background-color: $neutralColor2;
+  .choose-easybank-article {
+    width: 90%;
+    padding: 4rem 1rem;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    @media (min-width: 600px) {
+      text-align: left;
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+    .second-heading {
+      @include secondHeading;
+      @media (min-width: 600px) {
+        margin-left: 0;
+        padding: 1rem 0;
+      }
+    }
+    .paragraph {
+      @include paragraph;
+      @media (min-width: 600px) {
+        text-align: left;
+        margin-left: 0;
+        padding: 1rem 0;
+      }
+    }
+  }
+  .bank-features {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 10rem;
+    display: grid;
+    gap: 0 3.6rem;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    .feature {
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+      text-align: center;
+      max-width: 30rem;
+      @media (min-width: 600px) {
+        text-align: left;
+        width: 100%;
+      }
+
+      .feature-icon {
+        border-radius: 50%;
+        margin: 2rem auto;
+        width: 10rem;
+        height: 10rem;
+      }
+      .third-heading {
+        font-size: clamp(1.8rem, 6vw, 3.5rem);
+        padding: 1rem 0;
+      }
+      .paragraph {
+        @include paragraph;
+      }
+    }
+  }
+}
+/////////////
+.latest-articles {
+  width: 100%;
+  padding: 5rem 0;
+  margin: 0 auto;
+  background-color: $neutralColor3;
+  .second-heading {
+    @include secondHeading;
+    text-align: center;
+    @media (min-width: 768px) {
+      text-align: left;
+      margin-left: 10rem;
+    }
+  }
+  .articles-container {
+    width: 90%;
+    margin: 2rem auto;
+    text-align: left;
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    .article {
+      width: 100%;
+      max-width: 40rem;
+      margin: 3rem auto;
+      background-color: $neutralColor4;
+      border-radius: 0.5rem;
+      box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.05);
+      .illustration {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem 0.5rem 0 0;
+      }
+      .author {
+        padding: 2rem 2rem 1rem;
+        color: $neutralColor1;
+        font-size: 1.3rem;
+        font-weight: 300;
+      }
+      .article-title {
+        padding: 0 2rem 1rem;
+        font-weight: 400;
+        font-size: clamp(1.8rem, 6vw, 3.5rem);
+        &:hover {
+          cursor: pointer;
+          color: $primaryColor2;
+        }
+      }
+      .article-content {
+        @include paragraph;
+        padding: 0 2rem 2rem;
+      }
+    }
+  }
+}
+//////////////
+.footer-section {
+  width: 100%;
+  background-color: $primaryColor1;
+  text-align: center;
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  .logo-social-media {
+    display: block;
+    width: 100%;
+    padding: 2rem;
+    margin: 0 auto;
+
+    .logo {
+      width: 15rem;
+      height: 2rem;
+      filter: brightness(0) invert(1);
+      margin: 2rem auto;
+    }
+    .social-media {
+      margin: 0 auto;
+      width: 80%;
+      max-width: 25rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      .social-media-icon {
+        width: 3rem;
+        height: 3rem;
+        &:hover {
+          cursor: pointer;
+          color: $primaryColor2;
+        }
+      }
+    }
+  }
+  .contact {
+    margin: 2rem auto;
+    @media (min-width: 500px) {
+      text-align: left;
+    }
+    .contact-info {
+      @include footerInfo;
+    }
+  }
+  .carrer-support {
+    @extend .contact;
+    .support {
+      color: $neutralColor3;
+      font-size: 2rem;
+      padding: 1rem;
+      &:hover {
+        cursor: pointer;
+        color: $primaryColor2;
+      }
+    }
+  }
+  .rights-reserved {
+    .request-invite {
+      @include requestInviteBtn;
+    }
+    .rights {
+      font-size: 1.4rem;
+      color: $neutralColor1;
+      padding: 2rem 0 4rem;
+    }
+  }
+}
+//////////////
+.attribution {
+  text-align: center;
+  padding: 3rem auto;
+  width: 100%;
+  height: 5rem;
+  background-color: $primaryColor1;
+  font-size: 1.6rem;
+  color: $neutralColor2;
+  a {
+    cursor: pointer;
+  }
+}
